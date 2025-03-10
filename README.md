@@ -18,6 +18,5 @@ Loss function: Es una funcion para evaluar que tan alejado esta los datos del al
 
 Desicion boundary: Es un trazo (linea, plano, etc) que separa en dos grupos.
 
-
 Vamos a colocar como resultado predictivo a Y' y a los reales resultados como Y. 
 

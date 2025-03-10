@@ -7,14 +7,17 @@ from sklearn import preprocessing
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
+import pickle  # Para transformar el script a un modelo usable en apis
+
 
 
 
 df = pd.read_csv("/home/jazmin/Escritorio/Projects/MessageSpamSorter/emails.csv")
 
 
-df = pd.get_dummies(df, columns=['Email No.'], drop_first=True)
+#df = pd.get_dummies(df, columns=['Email No.'], drop_first=True)
 
+df = df.drop(columns=["Email No."]) 
 
 print(df.head(3))
 
@@ -49,5 +52,31 @@ pipe.fit(x_train, y_train)  # Error: La iteracion es demasiado grande solucion e
 
 # Score
 
-print(pipe.score(x_test, y_test))
+pipe.predict(x_test)
+
+# Save the trained model to a file named "model.pkl"
+pickle.dump(pipe, open("model.pkl", "wb"))
+
+
+
+#print(pipe.score(x_test, y_test))
+
+
+#obtenemos las columnas
+
+#col_names = df[1:1]
+
+#print(col_names)
+
+#def vectorizar(data):
+    
+
+# Solucion en base a las columnas, bien vectorizar el texto en python  con sus frecuencias y el node pasa a python 
+
+#from sklearn.feature_extraction.text import TfidfVectorizer
+
+#tfidf_vectorizer = TfidfVectorizer(analyzer=tokenize_phrase)
+
+#tfidf_vectorizer.fit(corpus)
+#tfidf_vectors = tfidf_vectorizer.transform(corpus)
 
