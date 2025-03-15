@@ -9,17 +9,19 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 import pickle  # Para transformar el script a un modelo usable en apis
 
+import os
+rutacsv = os.path.abspath("./emails.csv")
 
 
 
-df = pd.read_csv("/home/jazmin/Escritorio/Projects/MessageSpamSorter/emails.csv")
+df = pd.read_csv(rutacsv)
 
 
 #df = pd.get_dummies(df, columns=['Email No.'], drop_first=True)
 
 df = df.drop(columns=["Email No."]) 
 
-print(df.head(3))
+#print(df.head(3))
 
 
 # Informacion relevante

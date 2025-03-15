@@ -9,7 +9,8 @@ Para su deteccion se usaran dos clases:
 Por ello se usara la regresion logisticas para predecir clases binarias.
 
 Caracteristicas a tener en cuenta:
-- keyword (vectorizar el texto)
+- words (vectorizar el texto)
+- Se uso countvectorizer para trabajar con las frecuencias y matchear con las palabras dadas en el modelo de entranamiento.
 
 
 Keywords:
@@ -19,4 +20,8 @@ Loss function: Es una funcion para evaluar que tan alejado esta los datos del al
 Desicion boundary: Es un trazo (linea, plano, etc) que separa en dos grupos.
 
 Vamos a colocar como resultado predictivo a Y' y a los reales resultados como Y. 
+
+## Mejoras a futuro
+
+El modelo soporta a emails solo en ingles como por ejemplo: "To STOP receiving these emails from us Just hit *REPLY* and let us know Thanks." y puede haber un sesgo de error al no tener palabras nuevas para detectar como spam o no spam. Ademas que el score logrado por el modelo es de 96.
 

@@ -1,0 +1,53 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Flask API",
+        "version": "1.0.0"
+    },
+    "tags": [
+        { "name": "spam or no spam email", "description": "Predict Operation" }
+    ],
+    "paths": {
+        "/predict": {
+            "post": {
+                "tags": ["email"],
+                "summary": "Clasifica entre spam y no spam email",
+                "requestBody": {
+                     "content": {
+                         "application/json": {
+                             "schema": {
+                                 "type": "object",
+                                 "properties": {
+                                     "email": { "type": "string", "example": "#To STOP receiving these emails from us Just hit *REPLY* and let us know Thanks." }
+                                 }
+                             }
+                         }
+                     }
+                 },
+                
+                "responses": {
+                    "200": {
+                        "description": "Successful",
+                        "content": {
+                            "application/json": {
+                                "schema": { "$ref": "#/components/schemas/Prediction" }
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+    },
+    "components": {
+        "schemas": {
+            "Prediction": {
+                "type": "object",
+                "properties": {
+                    
+                    "resultado": { "type": "string", "example": "Spam" }
+                }
+            }
+        }
+    }
+}
